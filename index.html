@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fahrenheit to Celsius Conversion</title>
+    <link rel="stylesheet" href="MyFormat.css">
+</head>
+<body>
+    <div>
+        <header>
+            <h1>Conversion of Fahrenheit to Celsius</h1>
+        </header>
+        <main>
+            <form id="conversionForm">
+                <label for="fahrenheits">Fahrenheit:</label>
+                <input type="number" name="fahrenheits" id="fahrenheits" required size="10">
+
+                <input type="text" name="output" id="output" disabled size="10" placeholder="Celsius">
+
+                <input type="button" value="Submit" id="btnCompute">
+                <button type="reset">Clear</button>
+            </form>
+        </main>
+    </div>
+
+    <script>
+        document.getElementById('btnCompute').addEventListener('click', function () {
+            let fahrenheit = parseFloat(document.getElementById('fahrenheits').value);
+
+            if (!isNaN(fahrenheit)) {
+                // Fahrenheit to Celsius conversion formula
+                let celsius = (fahrenheit - 32) * 5 / 9;
+                document.getElementById('output').value = celsius.toFixed(2) + " °C";
+            } else {
+                document.getElementById('output').value = 'Invalid input';
+            }
+        });
+    </script>
+</body>
+</html>
